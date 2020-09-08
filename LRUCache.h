@@ -5,11 +5,12 @@
 #include <unordered_map>
 
 class LRUCache {
-public:
+private:
     int currentSize;
     int maxSize;
     std::unordered_map<char, Node*> mapCache;
     DoublyLinkedList* dll;
+public:
     LRUCache(int capacity);
     ~LRUCache();
     char getMostRecentKey();
