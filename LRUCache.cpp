@@ -9,7 +9,9 @@ LRUCache::LRUCache(int capacity) {
 
 LRUCache::~LRUCache() {
     std::cout << "** Destructor LRUCache **\n";
-    dll->head->killMe();
+    if(dll->head){
+        dll->head->killMe();
+    }
 }
 
 char LRUCache::getMostRecentKey() {
@@ -103,4 +105,6 @@ void LRUCache::explainAnalyze() {
     //dll->printReverse();
     std::cout << "** ------------------------- **\n";
 }
+
+
 
