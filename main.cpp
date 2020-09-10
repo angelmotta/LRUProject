@@ -3,10 +3,8 @@
 
 using namespace std;
 
-// Templates start
-
 int main() {
-    LRUCache lruCacheObj(3);
+    LRUCache<char, int> lruCacheObj(3);
     lruCacheObj.insertKeyValuePair('b', 2);
     lruCacheObj.insertKeyValuePair('a', 1);
     lruCacheObj.insertKeyValuePair('c', 3);
@@ -30,5 +28,11 @@ int main() {
 //    lruCacheObj.insertKeyValuePair('4', 1);
 //    std::cout << lruCacheObj.getValueFromKey('2') << "\n";
 //    lruCacheObj.explainAnalyze();
+    // Test Template
+//    LRUCache<char, char> lruCacheObj2(3);
+//    lruCacheObj2.insertKeyValuePair('b', '2');
+//    lruCacheObj2.insertKeyValuePair('a', '1');
+//    lruCacheObj2.insertKeyValuePair('c', '3');
+//    lruCacheObj2.explainAnalyze();
     return 0;
 }
