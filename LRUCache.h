@@ -1,23 +1,24 @@
 #ifndef LRUPROJECT_LRUCACHE_H
 #define LRUPROJECT_LRUCACHE_H
 #include "DoublyLinkedList.h"
+#include "ICache.h"
 #include <unordered_map>
 #include <optional>
 
 template <class T1, class T2>
-class LRUCache {
+class LRUCache : public ICache<T1, T2> {
 private:
     int currentSize;
     int maxSize;
     std::unordered_map<T1, Node<T1, T2>*> mapCache;
     DoublyLinkedList<T1, T2>* dll;
 public:
-    LRUCache(int capacity);
+    explicit LRUCache(int capacity);
     ~LRUCache();
     T1 getMostRecentKey();
-    void updatePositionNode(Node<T1, T2>* node);
     T2 getValueFromKey(T1 key);
     void insertKeyValuePair(T1 key, T2 value);
+    void updatePositionNode(Node<T1, T2>* node);
     void print();
     void explainAnalyze();
 };
