@@ -4,10 +4,9 @@
 #include "Node.h"
 
 /**
- * Doubly Linked List - Definition
+ * Doubly Linked List Definition
  * Self Organized List
  */
-
 template<class T1, class T2>
 class DoublyLinkedList {
 public:

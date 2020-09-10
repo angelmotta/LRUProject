@@ -2,6 +2,7 @@
 #define LRUPROJECT_LRUCACHE_H
 #include "DoublyLinkedList.h"
 #include <unordered_map>
+#include <optional>
 
 template <class T1, class T2>
 class LRUCache {
@@ -67,7 +68,7 @@ template<class T1, class T2>
 T2 LRUCache<T1, T2>::getValueFromKey(T1 key) {
     std::cout << "** getValueFromKey '" << key <<"' **\n";
     if(mapCache.find(key) != mapCache.end()){    // if we have the element requested
-        int valResult = mapCache[key]->value;
+        T2 valResult = mapCache[key]->value;
         // Update Cache structure if node is distinct to head
         Node<T1, T2>* node = mapCache[key];
         if(node != dll->head){
@@ -76,7 +77,8 @@ T2 LRUCache<T1, T2>::getValueFromKey(T1 key) {
         }
         return valResult;
     }
-    return -1;
+    std::cout << "None\n";
+    return {};
 }
 
 template<class T1, class T2>
