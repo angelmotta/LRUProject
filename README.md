@@ -26,7 +26,7 @@ A continuación se muestra de forma general los aspectos más importantes de la 
 
 ### Clases
 #### Clase LRUCache
-La clase principal de la estructura LRUCache esta definida en el archivo *LRUCache.h*, donde es importante destacar el uso de **unordered_map** para almacenar los keys y como value tenemos punteros hacia Objetos de tipo *Node* donde se almacenarán tanto el key como el value. El objeto LRUCache tambien esta compuesto por una **Doubly Linked List** al cual accedemos mediante un puntero llamado *dll*
+La clase principal de la estructura LRUCache esta definida en el archivo `LRUCache.h`, donde es importante destacar el uso de **unordered_map** para almacenar los keys y como value tenemos punteros hacia Objetos de tipo *Node* donde se almacenarán tanto el key como el value. El objeto LRUCache tambien esta compuesto por una **Doubly Linked List** al cual accedemos mediante un puntero llamado *dll*
 
 ``` cpp
 template <class T1, class T2>
@@ -54,7 +54,7 @@ public:
 * El acceso a los datos de la estructura estan protegidos mediante la definición en la sección *Private* de esta clase.
 
 #### Clase DoublyLinkedList
-La estructura LRUCache hace uso de esta Lista Doblemente Enlazada. Lo interesante de esta lista es que *Self Organized List* gracias al control que tiene sobre esta la clase LRUCache cada vez que recibe peticiones *getValueFromKey*.
+La estructura LRUCache hace uso de esta Lista Doblemente Enlazada definida en `DoublyLinkedList.h`. Lo interesante de esta lista es que *Self Organized List* gracias al control que tiene la clase LRUCache sobre esta, cada vez que recibe peticiones *getValueFromKey*.
 
 ``` cpp
 template<class T1, class T2>
@@ -74,7 +74,7 @@ public:
 * Por simplicidad los atributos estan como públicos pero es importante notar que la seguridad de acceso a estos datos es implementado en la clase LRUCache, es decir no se puede acceder a Lista Enlazada que es parte del Objeto LRUCache.
 
 #### Clase Node
-Los nodos de la lista enlazada, tienen una implementación standard tal como se muestra.<br>
+`Node.h` define los nodos de la lista enlazada, tienen una implementación standard tal como se muestra.<br>
 
 * El método *killMe()* es invocado por el destructor de la clase *LRUCache* quien llama primero al nodo *Head* quien recursivamente recorre hacia el resto de nodos *(next attribute)* para ejecutar el *delete* una vez alcanzado el *Tail* de la Lista
 
@@ -94,7 +94,7 @@ public:
 ```
 
 ### Interface
-La clase LRUCache es implementado utilizando como Interface la clase *ICache* definido en *ICache.h*. Esta clase abstracta define los 3 métodos que debe implementar la clase LRUCache. Esto permite la posibilidad que otras clases implementen estos métodos de forma distinta (Ejemplo FIFOCache)
+La clase LRUCache es implementado utilizando como Interface la clase *ICache* definido en `ICache.h`. Esta clase abstracta define los 3 métodos que debe implementar la clase LRUCache. Esto permite la posibilidad que otras clases implementen estos métodos de forma distinta (Ejemplo FIFOCache)
 
 ``` cpp
 template <class T1, class T2>
@@ -109,7 +109,7 @@ public:
 
 ### Templates
 
-Inicialmente se implementó la estructura LRUCache con tipos de datos Key(char):Value(int) de acuerdo al enuciado del problema. Sin embargo se incluyó flexibilidad en el tipo de datos mediante el uso de templates
+Inicialmente se implementó la estructura LRUCache con tipos de datos Key(char):Value(int) de acuerdo al enuciado del problema. Sin embargo se incluyó flexibilidad en el tipo de datos mediante el uso de templates en `LRUCache.h`, `DoublyLinkedList.h` y `Node.h` como se mostró anteriormente.
 
 ### Ejecución y test
 Desde el *main.cpp* creamos una instancia de la clase LRUCache con las siguientes operaciones recibiendo los resultados esperados.
